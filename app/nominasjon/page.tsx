@@ -4,12 +4,8 @@ export default function Nominasjon() {
       <section style={{ background: "#006666", color: "white", padding: "56px 24px", textAlign: "center" }}>
         <style>{`
           @media (max-width: 520px) {
-            .nominasjon-title {
-              font-size: 31px !important;
-            }
-            .nominasjon-logo {
-              height: 115px !important;
-            }
+            .nominasjon-title { font-size: 31px !important; }
+            .nominasjon-logo { height: 115px !important; }
           }
         `}</style>
 
@@ -18,12 +14,12 @@ export default function Nominasjon() {
         </a>
 
         <h1 className="nominasjon-title" style={{ fontSize: 48, maxWidth: 900, lineHeight: 1.1, margin: "0 auto 20px" }}>
-          Hvem skal være Asker Venstres folkevalgte for 2023 - 2027? 
+          Hvem skal være Asker Venstres folkevalgte for 2027–2031?
         </h1>
 
         <p style={{ fontSize: 21, maxWidth: 780, margin: "0 auto", lineHeight: 1.45 }}>
           Kunne du tenke deg å stille som kandidat for Asker Venstre i valget? Eller er det noen du har lyst til å foreslå?
-Nominasjonskomiteen skal lage et listeforslag, og ønsker et bredt spekter av innspill slik at listeforslaget blir representativt for den mangfoldigheten som kjennetegner både Venstre og hele nye Asker kommune. Den endelige valglisten skal velges på et eget nominasjonsmøte i oktober.
+          Nominasjonskomiteen skal lage et listeforslag, og ønsker et bredt spekter av innspill.
         </p>
       </section>
 
@@ -37,7 +33,7 @@ Nominasjonskomiteen skal lage et listeforslag, og ønsker et bredt spekter av in
 
           <p style={textStyle}>
             Har du andre innspill angående lista? Vi ønsker dine innspill slik at vi kan lage den best mulige listen for Asker.
-            Send gjerne flere forslag hvis du ønsker det, men et navn av gangen.
+            Send gjerne flere forslag hvis du ønsker det, men ett navn av gangen.
           </p>
 
           <div style={deadlineStyle}>
@@ -50,12 +46,12 @@ Nominasjonskomiteen skal lage et listeforslag, og ønsker et bredt spekter av in
           <h2 style={{ color: "#004750", marginTop: 0 }}>Send nominasjonsinnspill</h2>
 
           <p style={textStyle}>
-            Forslaget sendes direkte til nominasjonskomiteen. Du kan sende inn anonymt dersom du ønsker det.
+            Forslaget sendes direkte til nominasjonskomiteen. Skriv inn kontaktinfo slik at komiteen kan følge opp ved behov.
           </p>
 
           <form action="/api/innspill" method="POST">
             <input type="hidden" name="kapittel" value="Nominasjonsinnspill" />
-<input type="hidden" name="redirectTo" value="/nominasjon" />
+            <input type="hidden" name="redirectTo" value="/nominasjon" />
 
             <label style={labelStyle}>Navn på personen du foreslår</label>
             <input name="foreslattKandidat" required placeholder="Skriv navn her" style={inputStyle} />
@@ -69,8 +65,13 @@ Nominasjonskomiteen skal lage et listeforslag, og ønsker et bredt spekter av in
               style={textareaStyle}
             />
 
-            <label style={labelStyle}>Din kontaktinfo, valgfritt</label>
-            <input name="kontaktinfo" placeholder="Du kan være anonym" style={inputStyle} />
+            <label style={labelStyle}>Ditt navn og kontaktinfo</label>
+            <input
+              name="kontaktinfo"
+              required
+              placeholder="Skriv navn, e-post eller telefonnummer"
+              style={inputStyle}
+            />
 
             <button type="submit" style={buttonStyle}>
               Send innspill
@@ -124,42 +125,12 @@ Nominasjonskomiteen skal lage et listeforslag, og ønsker et bredt spekter av in
 }
 
 const committee = [
-  {
-    role: "Leder",
-    name: "Elisabeth Holter-Schøyen",
-    email: "elisabeth.holter.schoyen@venstre.no",
-    phone: "900 61 171",
-  },
-  {
-    role: "Komitemedlem",
-    name: "Tobias Waage Bremnes",
-    email: "tobiaswaage@live.com",
-    phone: "407 40 811",
-  },
-  {
-    role: "Komitemedlem",
-    name: "Gro Buttingsrud",
-    email: "gro.buttingsrud@gmail.com",
-    phone: "456 00 638",
-  },
-  {
-    role: "Komitemedlem",
-    name: "Eirik Davidsen",
-    email: "eirik-d@online.no",
-    phone: "930 16 971",
-  },
-  {
-    role: "Komitemedlem",
-    name: "Wilhelm Kavli",
-    email: "wilhelmkavli@gmail.com",
-    phone: "400 42 448",
-  },
-  {
-    role: "Representant fra Unge Venstre",
-    name: "Andreas Krogenæs",
-    email: "andreas@krogenaes.com",
-    phone: "474 46 445",
-  },
+  { role: "Leder", name: "Elisabeth Holter-Schøyen", email: "elisabeth.holter.schoyen@venstre.no", phone: "900 61 171" },
+  { role: "Komitemedlem", name: "Tobias Waage Bremnes", email: "tobiaswaage@live.com", phone: "407 40 811" },
+  { role: "Komitemedlem", name: "Gro Buttingsrud", email: "gro.buttingsrud@gmail.com", phone: "456 00 638" },
+  { role: "Komitemedlem", name: "Eirik Davidsen", email: "eirik-d@online.no", phone: "930 16 971" },
+  { role: "Komitemedlem", name: "Wilhelm Kavli", email: "wilhelmkavli@gmail.com", phone: "400 42 448" },
+  { role: "Representant fra Unge Venstre", name: "Andreas Krogenæs", email: "andreas@krogenaes.com", phone: "474 46 445" },
 ];
 
 const cardStyle = {
