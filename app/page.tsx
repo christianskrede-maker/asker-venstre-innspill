@@ -12,44 +12,45 @@ const chapters = [
 export default function Home() {
   return (
     <main style={{ minHeight: "100vh", background: "#f4f7f3", fontFamily: "Arial, sans-serif" }}>
-      <section style={{ background: "#006666", color: "white", padding: "64px 32px" }}>
+      <section style={{
+        background: "#006666",
+        color: "white",
+        padding: "72px 32px",
+        textAlign: "center"
+      }}>
         <img
           src="/logo.svg"
           alt="Asker Venstre"
-          style={{ height: 56, marginBottom: 28 }}
+          style={{ height: 100, marginBottom: 36 }}
         />
 
-        <h1 style={{ fontSize: 56, maxWidth: 850, lineHeight: 1.05, margin: "24px 0" }}>
+        <h1 style={{
+          fontSize: 56,
+          maxWidth: 900,
+          lineHeight: 1.05,
+          margin: "0 auto 24px"
+        }}>
           Hva er viktig for deg i Asker?
         </h1>
 
-        <p style={{ fontSize: 20, maxWidth: 650 }}>
+        <p style={{
+          fontSize: 21,
+          maxWidth: 680,
+          margin: "0 auto"
+        }}>
           Vi lager nytt program for 2027–2031. Dine innspill hjelper oss å prioritere riktig.
         </p>
-
-        <a href="/innspill" style={{
-          display: "inline-block",
-          marginTop: 24,
-          background: "#FF9940",
-          color: "#111",
-          padding: "16px 24px",
-          borderRadius: 999,
-          fontWeight: 700,
-          textDecoration: "none"
-        }}>
-          Gi innspill
-        </a>
       </section>
 
-      <section style={{ padding: "48px 32px", maxWidth: 1100, margin: "0 auto" }}>
-        <h2 style={{ color: "#004750", fontSize: 34 }}>
-          Velg kapittel
+      <section style={{ padding: "56px 32px", maxWidth: 1100, margin: "0 auto" }}>
+        <h2 style={{ color: "#004750", fontSize: 34, textAlign: "center", marginBottom: 32 }}>
+          Trykk på der du vil gi innspill
         </h2>
 
         <div style={{
           display: "grid",
           gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))",
-          gap: 16
+          gap: 18
         }}>
           {chapters.map((chapter, index) => (
             <a
@@ -57,7 +58,7 @@ export default function Home() {
               href={`/innspill?kapittel=${index + 1}`}
               style={{
                 background: "white",
-                padding: 24,
+                padding: 26,
                 borderRadius: 18,
                 color: "#004750",
                 textDecoration: "none",
