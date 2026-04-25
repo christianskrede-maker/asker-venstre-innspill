@@ -94,9 +94,9 @@ export default function Home() {
             Bli medlem i Venstre
           </a>
 
-          <a href="mailto:christianskrede@gmail.com" style={linkButton}>
-            Vil du hjelpe til i valgkampen, send melding her
-          </a>
+        <a href="/innspill?kapittel=valgkamp" style={linkButton}>
+  Vil du hjelpe til i valgkampen, send melding her
+</a>
 
           <a href="https://www.venstre.no/artikkel/2023/05/10/valgprogram-asker-venstre-2023/" style={linkButton}>
             Partiprogram Asker Venstre 2023–27
