@@ -5,9 +5,7 @@ export default function Nominasjon() {
         <style>{`
           @media (max-width: 520px) {
             .nominasjon-title {
-              font-size: 34px !important;
-              word-break: normal;
-              overflow-wrap: anywhere;
+              font-size: 32px !important;
             }
           }
         `}</style>
@@ -16,26 +14,34 @@ export default function Nominasjon() {
           <img src="/logo.svg" alt="Asker Venstre" style={{ height: 140, marginBottom: 24 }} />
         </a>
 
-        <h1
-          className="nominasjon-title"
-          style={{ fontSize: 48, maxWidth: 900, lineHeight: 1.1, margin: "0 auto 20px" }}
-        >
-          Nominasjonsinnspill
+        <h1 className="nominasjon-title" style={{ fontSize: 48, maxWidth: 900, lineHeight: 1.1, margin: "0 auto 20px" }}>
+          Hvem skal representere Venstre i Asker 2027–2031?
         </h1>
 
-        <p style={{ fontSize: 21, maxWidth: 760, margin: "0 auto", lineHeight: 1.4 }}>
-          Hvem mener du bør stå på listen for Asker Venstre ved kommunevalget?
+        <p style={{ fontSize: 21, maxWidth: 780, margin: "0 auto", lineHeight: 1.45 }}>
+          Nominasjonskomiteen har startet arbeidet med valglisten til kommunestyret og ønsker dine innspill.
         </p>
       </section>
 
-      <section style={{ maxWidth: 760, margin: "0 auto", padding: "48px 24px" }}>
-        <div style={{ background: "white", padding: 32, borderRadius: 22, boxShadow: "0 10px 30px rgba(0,0,0,0.08)" }}>
-          <h2 style={{ color: "#004750", marginTop: 0 }}>Send inn forslag</h2>
-
-          <p style={{ color: "#004750", lineHeight: 1.6 }}>
-            Du kan foreslå personer du mener bør bidra politisk for Asker Venstre.
-            Forslaget kan være kort, men skriv gjerne litt om hvorfor du foreslår personen.
+      <section style={{ maxWidth: 980, margin: "0 auto", padding: "48px 24px" }}>
+        <div style={cardStyle}>
+          <h2 style={headingStyle}>Vi ønsker dine forslag</h2>
+          <p style={textStyle}>
+            Ønsker du å stå på kommunestyrelista i Asker i 2027? Eller kjenner du noen som bør stå der?
+            Har du andre innspill angående lista?
           </p>
+          <p style={textStyle}>
+            Vi ønsker å få dine innspill slik at vi kan lage den best mulige lista for Asker.
+          </p>
+
+          <div style={deadlineStyle}>
+            <strong>Frist for innspill på navn:</strong><br />
+            onsdag 20. mai
+          </div>
+        </div>
+
+        <div style={formCardStyle}>
+          <h2 style={{ color: "#004750", marginTop: 0 }}>Send nominasjonsinnspill</h2>
 
           <form action="/api/innspill" method="POST">
             <input type="hidden" name="kapittel" value="Nominasjonsinnspill" />
@@ -44,15 +50,46 @@ export default function Nominasjon() {
             <input name="foreslattKandidat" required style={inputStyle} />
 
             <label style={labelStyle}>Hvorfor foreslår du denne personen?</label>
-            <textarea name="innspill" required rows={8} style={textareaStyle} />
+            <textarea
+              name="innspill"
+              required
+              rows={8}
+              placeholder="Skriv gjerne litt om erfaring, engasjement, lokalkunnskap eller hvorfor personen bør vurderes."
+              style={textareaStyle}
+            />
 
             <label style={labelStyle}>Din kontaktinfo, valgfritt</label>
             <input name="kontaktinfo" placeholder="Du kan være anonym" style={inputStyle} />
 
             <button type="submit" style={buttonStyle}>
-              Send nominasjonsinnspill
+              Send innspill
             </button>
           </form>
+        </div>
+
+        <div style={cardStyle}>
+          <h2 style={headingStyle}>Spørsmål om prosessen?</h2>
+          <p style={textStyle}>
+            Har du spørsmål om nominasjonsprosessen, eller er du i tvil om du vil stille til valg?
+            Nøl ikke med å ta kontakt med nominasjonskomiteen.
+          </p>
+
+          <div style={committeeGridStyle}>
+            {committee.map((person) => (
+              <div key={person.name} style={personCardStyle}>
+                <div style={{ color: "#2ba869", fontWeight: 800, marginBottom: 6 }}>
+                  {person.role}
+                </div>
+                <h3 style={{ color: "#004750", margin: "0 0 10px" }}>
+                  {person.name}
+                </h3>
+                <p style={{ margin: "0 0 6px" }}>
+                  <a href={`mailto:${person.email}`} style={linkStyle}>{person.email}</a>
+                </p>
+                <p style={{ margin: 0 }}>{person.phone}</p>
+              </div>
+            ))}
+          </div>
         </div>
 
         <p style={{ marginTop: 24 }}>
@@ -65,12 +102,104 @@ export default function Nominasjon() {
   );
 }
 
+const committee = [
+  {
+    role: "Leder",
+    name: "Elisabeth Holter-Schøyen",
+    email: "elisabeth.holter.schoyen@venstre.no",
+    phone: "900 61 171",
+  },
+  {
+    role: "Komitemedlem",
+    name: "Tobias Waage Bremnes",
+    email: "tobiaswaage@live.com",
+    phone: "407 40 811",
+  },
+  {
+    role: "Komitemedlem",
+    name: "Gro Buttingsrud",
+    email: "gro.buttingsrud@gmail.com",
+    phone: "456 00 638",
+  },
+  {
+    role: "Komitemedlem",
+    name: "Eirik Davidsen",
+    email: "eirik-d@online.no",
+    phone: "930 16 971",
+  },
+  {
+    role: "Komitemedlem",
+    name: "Wilhelm Kavli",
+    email: "wilhelmkavli@gmail.com",
+    phone: "400 42 448",
+  },
+  {
+    role: "Representant fra Unge Venstre",
+    name: "Andreas Krogenæs",
+    email: "andreas@krogenaes.com",
+    phone: "474 46 445",
+  },
+];
+
+const cardStyle = {
+  background: "white",
+  padding: 32,
+  borderRadius: 22,
+  boxShadow: "0 10px 30px rgba(0,0,0,0.08)",
+  marginBottom: 28,
+};
+
+const formCardStyle = {
+  ...cardStyle,
+  borderLeft: "8px solid #FF9940",
+};
+
+const headingStyle = {
+  color: "#004750",
+  marginTop: 0,
+  fontSize: 30,
+};
+
+const textStyle = {
+  color: "#004750",
+  lineHeight: 1.7,
+  fontSize: 17,
+};
+
+const deadlineStyle = {
+  marginTop: 24,
+  background: "#FF9940",
+  color: "#111",
+  padding: 20,
+  borderRadius: 18,
+  fontWeight: 800,
+  fontSize: 18,
+};
+
+const committeeGridStyle = {
+  display: "grid",
+  gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))",
+  gap: 16,
+  marginTop: 24,
+};
+
+const personCardStyle = {
+  background: "#f4f7f3",
+  padding: 22,
+  borderRadius: 18,
+};
+
+const linkStyle = {
+  color: "#006666",
+  fontWeight: 700,
+};
+
 const labelStyle = {
   display: "block",
   fontWeight: 700,
   color: "#004750",
   marginTop: 22,
-  marginBottom: 8
+  marginBottom: 8,
 };
 
 const inputStyle = {
@@ -79,12 +208,12 @@ const inputStyle = {
   borderRadius: 14,
   border: "1px solid #cfd8d3",
   fontSize: 16,
-  boxSizing: "border-box" as const
+  boxSizing: "border-box" as const,
 };
 
 const textareaStyle = {
   ...inputStyle,
-  minHeight: 160
+  minHeight: 160,
 };
 
 const buttonStyle = {
@@ -96,5 +225,5 @@ const buttonStyle = {
   padding: "16px 26px",
   fontWeight: 800,
   fontSize: 16,
-  cursor: "pointer"
+  cursor: "pointer",
 };
