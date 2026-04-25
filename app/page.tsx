@@ -82,6 +82,10 @@ export default function Home() {
           gap: 16,
           marginTop: 42
         }}>
+          <a href="/nominasjon" style={linkButton}>
+            Nominasjonsinnspill
+          </a>
+
           <a href="https://www.venstre.no/lokal/viken/asker/" style={linkButton}>
             Mer om Asker Venstre
           </a>
