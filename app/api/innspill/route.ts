@@ -14,7 +14,7 @@ export async function POST(request: Request) {
   const isNominasjon = kapittel.trim().toLowerCase() === "nominasjonsinnspill";
 
   await resend.emails.send({
-    from: "Asker Venstre <onboarding@resend.dev>",
+    from: "Asker Venstre <post@askervenstre.com>",
     to: isNominasjon
       ? ["christian.skrede@politiker.asker.no"]
       : ["christianskrede@gmail.com"],
