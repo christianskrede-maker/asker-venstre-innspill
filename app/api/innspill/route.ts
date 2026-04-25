@@ -8,6 +8,7 @@ export async function POST(request: Request) {
   const innspill = String(formData.get("innspill") || "");
   const kontaktinfo = String(formData.get("kontaktinfo") || "Anonym");
   const foreslattKandidat = String(formData.get("foreslattKandidat") || "");
+  const redirectTo = String(formData.get("redirectTo") || "/");
 
   const resend = new Resend(process.env.RESEND_API_KEY);
 
@@ -36,5 +37,5 @@ ${kontaktinfo}
     `,
   });
 
-  redirect("/");
+  redirect(redirectTo);
 }
