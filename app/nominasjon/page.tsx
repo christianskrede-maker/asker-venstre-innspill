@@ -19,7 +19,7 @@ export default function Nominasjon() {
 
         <p style={{ fontSize: 21, maxWidth: 780, margin: "0 auto", lineHeight: 1.45 }}>
           Kunne du tenke deg å stille som kandidat for Asker Venstre i valget? Eller er det noen du har lyst til å foreslå?
-          Nominasjonskomiteen skal lage et listeforslag, og ønsker et bredt spekter av innspill.
+Nominasjonskomiteen skal lage et listeforslag, og ønsker et bredt spekter av innspill slik at listeforslaget blir representativt for den mangfoldigheten som kjennetegner både Venstre og hele nye Asker kommune. Den endelige valglisten skal velges på et eget nominasjonsmøte i oktober.
         </p>
       </section>
 
