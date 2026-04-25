@@ -15,15 +15,21 @@ export async function POST(request: Request) {
   const isNominasjon = kapittel.trim().toLowerCase() === "nominasjonsinnspill";
   const isValgkamp = kapittel.trim().toLowerCase() === "melding til valgkampsjefen";
 
-  await resend.emails.send({
-    from: "Asker Venstre <post@askervenstre.com>",
-    to: isNominasjon
-      ? ["tobiaswaage@live.com", "elisabeth.holter.schoyen@gmail.com"]
-      : isValgkamp
-      ? ["venstrepetter@gmail.com"]
-      : ["christianskrede@gmail.com"],
-    subject: `Innspill til ${kapittel}`,
-    text: `
+  const subject = isValgkamp
+    ? "Melding til valgkampsjefen"
+    : `Innspill til ${kapittel}`;
+
+  const text = isValgkamp
+    ? `
+Ny melding til valgkampsjefen
+
+Ønsket frivillig:
+${kontaktinfo}
+
+Melding:
+${innspill}
+    `
+    : `
 Nytt innspill til Asker Venstre
 
 Tema:
@@ -37,7 +43,17 @@ ${innspill}
 
 Kontaktinfo:
 ${kontaktinfo}
-    `,
+    `;
+
+  await resend.emails.send({
+    from: "Asker Venstre <post@askervenstre.com>",
+    to: isNominasjon
+      ? ["tobiaswaage@live.com", "elisabeth.holter.schoyen@gmail.com"]
+      : isValgkamp
+      ? ["venstrepetter@gmail.com"]
+      : ["christianskrede@gmail.com"],
+    subject,
+    text,
   });
 
   redirect(redirectTo);
