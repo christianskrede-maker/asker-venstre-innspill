@@ -5,13 +5,16 @@ export default function Nominasjon() {
         <style>{`
           @media (max-width: 520px) {
             .nominasjon-title {
-              font-size: 32px !important;
+              font-size: 31px !important;
+            }
+            .nominasjon-logo {
+              height: 115px !important;
             }
           }
         `}</style>
 
         <a href="/">
-          <img src="/logo.svg" alt="Asker Venstre" style={{ height: 140, marginBottom: 24 }} />
+          <img className="nominasjon-logo" src="/logo.svg" alt="Asker Venstre" style={{ height: 140, marginBottom: 24 }} />
         </a>
 
         <h1 className="nominasjon-title" style={{ fontSize: 48, maxWidth: 900, lineHeight: 1.1, margin: "0 auto 20px" }}>
@@ -26,28 +29,33 @@ export default function Nominasjon() {
       <section style={{ maxWidth: 980, margin: "0 auto", padding: "48px 24px" }}>
         <div style={cardStyle}>
           <h2 style={headingStyle}>Vi ønsker dine forslag</h2>
+
           <p style={textStyle}>
             Ønsker du å stå på kommunestyrelista i Asker i 2027? Eller kjenner du noen som bør stå der?
-            Har du andre innspill angående lista?
           </p>
+
           <p style={textStyle}>
-            Vi ønsker å få dine innspill slik at vi kan lage den best mulige lista for Asker.
+            Har du andre innspill angående lista? Vi ønsker dine innspill slik at vi kan lage den best mulige lista for Asker.
           </p>
 
           <div style={deadlineStyle}>
-            <strong>Frist for innspill på navn:</strong><br />
-            onsdag 20. mai
+            <div style={{ fontSize: 15, marginBottom: 6 }}>Frist for innspill på navn</div>
+            <div>Onsdag 20. mai</div>
           </div>
         </div>
 
         <div style={formCardStyle}>
           <h2 style={{ color: "#004750", marginTop: 0 }}>Send nominasjonsinnspill</h2>
 
+          <p style={textStyle}>
+            Forslaget sendes direkte til nominasjonskomiteen. Du kan sende inn anonymt dersom du ønsker det.
+          </p>
+
           <form action="/api/innspill" method="POST">
             <input type="hidden" name="kapittel" value="Nominasjonsinnspill" />
 
             <label style={labelStyle}>Navn på personen du foreslår</label>
-            <input name="foreslattKandidat" required style={inputStyle} />
+            <input name="foreslattKandidat" required placeholder="Skriv navn her" style={inputStyle} />
 
             <label style={labelStyle}>Hvorfor foreslår du denne personen?</label>
             <textarea
@@ -69,6 +77,7 @@ export default function Nominasjon() {
 
         <div style={cardStyle}>
           <h2 style={headingStyle}>Spørsmål om prosessen?</h2>
+
           <p style={textStyle}>
             Har du spørsmål om nominasjonsprosessen, eller er du i tvil om du vil stille til valg?
             Nøl ikke med å ta kontakt med nominasjonskomiteen.
@@ -80,20 +89,29 @@ export default function Nominasjon() {
                 <div style={{ color: "#2ba869", fontWeight: 800, marginBottom: 6 }}>
                   {person.role}
                 </div>
-                <h3 style={{ color: "#004750", margin: "0 0 10px" }}>
+
+                <h3 style={{ color: "#004750", margin: "0 0 12px", lineHeight: 1.25 }}>
                   {person.name}
                 </h3>
-                <p style={{ margin: "0 0 6px" }}>
-                  <a href={`mailto:${person.email}`} style={linkStyle}>{person.email}</a>
+
+                <p style={{ margin: "0 0 8px", lineHeight: 1.4 }}>
+                  <a href={`mailto:${person.email}`} style={linkStyle}>
+                    {person.email}
+                  </a>
                 </p>
-                <p style={{ margin: 0 }}>{person.phone}</p>
+
+                <p style={{ margin: 0 }}>
+                  <a href={`tel:${person.phone.replaceAll(" ", "")}`} style={phoneStyle}>
+                    {person.phone}
+                  </a>
+                </p>
               </div>
             ))}
           </div>
         </div>
 
         <p style={{ marginTop: 24 }}>
-          <a href="/" style={{ color: "#006666", fontWeight: 700 }}>
+          <a href="/" style={{ color: "#006666", fontWeight: 700, textDecoration: "none" }}>
             ← Tilbake til forsiden
           </a>
         </p>
@@ -173,7 +191,8 @@ const deadlineStyle = {
   padding: 20,
   borderRadius: 18,
   fontWeight: 800,
-  fontSize: 18,
+  fontSize: 20,
+  textAlign: "center" as const,
 };
 
 const committeeGridStyle = {
@@ -187,11 +206,19 @@ const personCardStyle = {
   background: "#f4f7f3",
   padding: 22,
   borderRadius: 18,
+  border: "1px solid #dbe6df",
 };
 
 const linkStyle = {
   color: "#006666",
   fontWeight: 700,
+  wordBreak: "break-word" as const,
+};
+
+const phoneStyle = {
+  color: "#004750",
+  fontWeight: 700,
+  textDecoration: "none",
 };
 
 const labelStyle = {
