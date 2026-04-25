@@ -53,6 +53,7 @@ export default function Nominasjon() {
 
           <form action="/api/innspill" method="POST">
             <input type="hidden" name="kapittel" value="Nominasjonsinnspill" />
+<input type="hidden" name="redirectTo" value="/nominasjon" />
 
             <label style={labelStyle}>Navn på personen du foreslår</label>
             <input name="foreslattKandidat" required placeholder="Skriv navn her" style={inputStyle} />
