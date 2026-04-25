@@ -11,14 +11,13 @@ export async function POST(request: Request) {
 
   const resend = new Resend(process.env.RESEND_API_KEY);
 
-  const mottakere =
-    kapittel === "Nominasjonsinnspill"
-      ? ["tobiaswaage@live.com", "elisabeth.holter.schoyen@gmail.com"]
-      : ["christianskrede@gmail.com"];
+  const isNominasjon = kapittel.trim().toLowerCase() === "nominasjonsinnspill";
 
   await resend.emails.send({
     from: "Asker Venstre <onboarding@resend.dev>",
-    to: mottakere,
+    to: isNominasjon
+      ? ["tobiaswaage@live.com", "elisabeth.holter.schoyen@gmail.com"]
+      : ["christianskrede@gmail.com"],
     subject: `Innspill til ${kapittel}`,
     text: `
 Nytt innspill til Asker Venstre
