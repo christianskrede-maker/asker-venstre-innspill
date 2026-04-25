@@ -16,7 +16,7 @@ export async function POST(request: Request) {
   await resend.emails.send({
     from: "Asker Venstre <onboarding@resend.dev>",
     to: isNominasjon
-      ? ["tobiaswaage@live.com", "elisabeth.holter.schoyen@gmail.com"]
+      ? ["christian.skrede@politiker.asker.no"]
       : ["christianskrede@gmail.com"],
     subject: `Innspill til ${kapittel}`,
     text: `
