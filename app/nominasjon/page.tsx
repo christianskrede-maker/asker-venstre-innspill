@@ -35,7 +35,8 @@ export default function Nominasjon() {
           </p>
 
           <p style={textStyle}>
-            Har du andre innspill angående lista? Vi ønsker dine innspill slik at vi kan lage den best mulige lista for Asker.
+            Har du andre innspill angående lista? Vi ønsker dine innspill slik at vi kan lage den best mulige listen for Asker.
+            Send gjerne flere forslag hvis du ønsker det, men et navn av gangen.
           </p>
 
           <div style={deadlineStyle}>
