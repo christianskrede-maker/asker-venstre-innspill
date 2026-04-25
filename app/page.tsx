@@ -21,7 +21,7 @@ export default function Home() {
         <img
           src="/logo.svg"
           alt="Asker Venstre"
-          style={{ height: 100, marginBottom: 36 }}
+          style={{ height: 220, marginBottom: 28 }}
         />
 
         <h1 style={{
@@ -35,10 +35,12 @@ export default function Home() {
 
         <p style={{
           fontSize: 21,
-          maxWidth: 680,
-          margin: "0 auto"
+          maxWidth: 720,
+          margin: "0 auto",
+          lineHeight: 1.35
         }}>
-          Vi lager nytt program for 2027–2031. Dine innspill hjelper oss å prioritere riktig.
+          Vi lager nytt program for 2027–2031.<br />
+          Dine innspill hjelper oss å prioritere riktig.
         </p>
       </section>
 
@@ -73,7 +75,41 @@ export default function Home() {
             </a>
           ))}
         </div>
+
+        <div style={{
+          display: "grid",
+          gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))",
+          gap: 16,
+          marginTop: 42
+        }}>
+          <a href="https://www.venstre.no/lokal/viken/asker/" style={linkButton}>
+            Mer om Asker Venstre
+          </a>
+
+          <a href="https://www.venstre.no/blimedlem/#framover" style={linkButton}>
+            Bli medlem i Venstre
+          </a>
+
+          <a href="mailto:christianskrede@gmail.com" style={linkButton}>
+            Vil du hjelpe til i valgkampen, send melding her
+          </a>
+
+          <a href="https://www.venstre.no/artikkel/2023/05/10/valgprogram-asker-venstre-2023/" style={linkButton}>
+            Partiprogram Asker Venstre 2023–27
+          </a>
+        </div>
       </section>
     </main>
   );
 }
+
+const linkButton = {
+  background: "#FF9940",
+  color: "#111",
+  padding: 18,
+  borderRadius: 999,
+  textAlign: "center" as const,
+  fontWeight: 800,
+  textDecoration: "none",
+  boxShadow: "0 8px 20px rgba(0,0,0,0.08)"
+};
