@@ -18,11 +18,12 @@ export default function Nominasjon() {
         </a>
 
         <h1 className="nominasjon-title" style={{ fontSize: 48, maxWidth: 900, lineHeight: 1.1, margin: "0 auto 20px" }}>
-          Hvem skal representere Venstre i Asker 2027–2031?
+          Hvem skal være Asker Venstres folkevalgte for 2023 - 2027? 
         </h1>
 
         <p style={{ fontSize: 21, maxWidth: 780, margin: "0 auto", lineHeight: 1.45 }}>
-          Nominasjonskomiteen har startet arbeidet med valglisten til kommunestyret og ønsker dine innspill.
+          Kunne du tenke deg å stille som kandidat for Asker Venstre i valget? Eller er det noen du har lyst til å foreslå?
+Nominasjonskomiteen skal lage et listeforslag, og ønsker et bredt spekter av innspill slik at listeforslaget blir representativt for den mangfoldigheten som kjennetegner både Venstre og hele nye Asker kommune. Den endelige valglisten skal velges på et eget nominasjonsmøte i oktober.
         </p>
       </section>
 
