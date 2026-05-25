@@ -117,7 +117,19 @@ ${innspill}
 Kontaktinfo:
 ${kontaktinfo}
     `;
-
+if (process.env.GOOGLE_SHEET_WEBHOOK_URL) {
+  await fetch(process.env.GOOGLE_SHEET_WEBHOOK_URL, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      kapittel,
+      innspill,
+      kontaktinfo,
+    }),
+  });
+}
   await resend.emails.send({
     from: "Asker Venstre <post@askervenstre.com>",
     to: recipients,
