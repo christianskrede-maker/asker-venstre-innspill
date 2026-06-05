@@ -1,6 +1,3 @@
-Ja — her er komplett fil klar til copy/paste:
-
-```tsx
 export default function Nominasjon() {
   return (
     <main style={{ minHeight: "100vh", background: "#f4f7f3", fontFamily: "Arial, sans-serif" }}>
@@ -215,4 +212,3 @@ const buttonStyle = {
   fontSize: 16,
   cursor: "pointer",
 };
-```
