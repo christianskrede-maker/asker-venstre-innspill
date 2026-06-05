@@ -1,3 +1,6 @@
+Ja — her er komplett fil klar til copy/paste:
+
+```tsx
 export default function Nominasjon() {
   return (
     <main style={{ minHeight: "100vh", background: "#f4f7f3", fontFamily: "Arial, sans-serif" }}>
@@ -19,7 +22,7 @@ export default function Nominasjon() {
 
         <p style={{ fontSize: 21, maxWidth: 780, margin: "0 auto", lineHeight: 1.45 }}>
           Kunne du tenke deg å stille som kandidat for Asker Venstre i valget? Eller er det noen du har lyst til å foreslå?
-Nominasjonskomiteen skal lage et listeforslag, og ønsker et bredt spekter av innspill slik at listeforslaget blir representativt for den mangfoldigheten som kjennetegner både Venstre og hele nye Asker kommune. Den endelige valglisten skal velges på et eget nominasjonsmøte i oktober.
+          Nominasjonskomiteen skal lage et listeforslag, og ønsker et bredt spekter av innspill slik at listeforslaget blir representativt for den mangfoldigheten som kjennetegner både Venstre og hele nye Asker kommune. Den endelige valglisten skal velges på et eget nominasjonsmøte i oktober.
         </p>
       </section>
 
@@ -35,6 +38,7 @@ Nominasjonskomiteen skal lage et listeforslag, og ønsker et bredt spekter av in
             Har du andre innspill angående listen? Vi ønsker dine innspill slik at vi kan lage den best mulige listen for Asker.
             Send gjerne flere forslag hvis du ønsker det, men ett navn av gangen.
           </p>
+        </div>
 
         <div style={formCardStyle}>
           <h2 style={{ color: "#004750", marginTop: 0 }}>Send nominasjonsinnspill</h2>
@@ -152,17 +156,6 @@ const textStyle = {
   fontSize: 17,
 };
 
-const deadlineStyle = {
-  marginTop: 24,
-  background: "#FF9940",
-  color: "#111",
-  padding: 20,
-  borderRadius: 18,
-  fontWeight: 800,
-  fontSize: 20,
-  textAlign: "center" as const,
-};
-
 const committeeGridStyle = {
   display: "grid",
   gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))",
@@ -222,3 +215,4 @@ const buttonStyle = {
   fontSize: 16,
   cursor: "pointer",
 };
+```
