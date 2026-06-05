@@ -36,12 +36,6 @@ Nominasjonskomiteen skal lage et listeforslag, og ønsker et bredt spekter av in
             Send gjerne flere forslag hvis du ønsker det, men ett navn av gangen.
           </p>
 
-          <div style={deadlineStyle}>
-            <div style={{ fontSize: 15, marginBottom: 6 }}>Frist for innspill på navn</div>
-            <div>Onsdag 20. mai</div>
-          </div>
-        </div>
-
         <div style={formCardStyle}>
           <h2 style={{ color: "#004750", marginTop: 0 }}>Send nominasjonsinnspill</h2>
 
